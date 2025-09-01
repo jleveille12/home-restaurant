@@ -9,6 +9,7 @@ import androidx.room.PrimaryKey
 data class Food(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
+    val category: FoodCategory,
     val name: String,
     val prepTime: Int,
     val rating: Int,

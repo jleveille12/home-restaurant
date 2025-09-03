@@ -1,5 +1,6 @@
 package com.example.homerestaurant.ui.entree
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
@@ -13,14 +14,17 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.homerestaurant.HomeRestaurantTopAppBar
@@ -83,9 +87,27 @@ fun EntreeScreenListOnly(
 @Composable
 private fun EntreeBody(
     entreeList: List<Food>,
-    onFoodClick: (Food) -> Unit,
+    onFoodClick: (Int) -> Unit,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
-
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
+        if (entreeList.isEmpty()) {
+            Text(
+                text = "No Entrees in the menu. Tap \"+\" to add.",
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(contentPadding)
+            )
+        } else {
+            MenuList(
+                foodList = entreeList,
+                onFoodClick = { onFoodClick(it.id) },
+                contentPadding = contentPadding,
+                modifier = Modifier.padding(horizontal = 8.dp)
+            )
+        }
+    }
 }

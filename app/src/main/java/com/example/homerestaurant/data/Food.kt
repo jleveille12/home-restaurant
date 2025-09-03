@@ -12,7 +12,7 @@ data class Food(
     val category: FoodCategory,
     val name: String,
     val prepTime: Int,
-    val rating: Int,
-    val imageUri: Uri,
-    val ingredients: List<Ingredient>
+    val rating: Int = 0,
+    val imageUri: Uri? = null,
+    val ingredients: List<String>? = null,
     )

@@ -31,6 +31,7 @@ import com.example.homerestaurant.HomeRestaurantTopAppBar
 import com.example.homerestaurant.R
 import com.example.homerestaurant.data.Food
 import com.example.homerestaurant.ui.AppViewModelProvider
+import com.example.homerestaurant.ui.MenuList
 import com.example.homerestaurant.ui.navigation.NavigationDestination
 
 object EntreeDestination : NavigationDestination {
@@ -42,7 +43,7 @@ object EntreeDestination : NavigationDestination {
 @Composable
 fun EntreeScreenListOnly(
     navigateToFoodEntry: () -> Unit,
-    navigateToFoodDetails: (Food) -> Unit,
+    navigateToFoodDetails: (Int) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: EntreeViewModel = viewModel(factory = AppViewModelProvider.Factory)
     ) {

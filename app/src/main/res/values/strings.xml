@@ -3,4 +3,6 @@
     <string name="back">Back</string>
     <string name="entree">Entree</string>
     <string name="add_item">Add Item</string>
+    <string name="dessert">Dessert</string>
+    <string name="side">Side</string>
 </resources>

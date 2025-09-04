@@ -41,7 +41,7 @@ object EntreeDestination : NavigationDestination {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EntreeScreenListOnly(
+fun EntreeScreen(
     navigateToFoodEntry: () -> Unit,
     navigateToFoodDetails: (Int) -> Unit,
     modifier: Modifier = Modifier,

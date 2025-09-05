@@ -9,6 +9,8 @@ import com.example.homerestaurant.ui.dessert.DessertDestination
 import com.example.homerestaurant.ui.dessert.DessertScreen
 import com.example.homerestaurant.ui.entree.EntreeDestination
 import com.example.homerestaurant.ui.entree.EntreeScreen
+import com.example.homerestaurant.ui.food.FoodEntryDestination
+import com.example.homerestaurant.ui.food.FoodEntryScreen
 import com.example.homerestaurant.ui.side.SideDestination
 import com.example.homerestaurant.ui.side.SideScreen
 
@@ -24,8 +26,8 @@ fun HomeRestaurantNavHost(
     ) {
         composable(route = EntreeDestination.route) {
             EntreeScreen(
-                // TODO: FIXME -callback functions are simply placeholders
-                navigateToFoodEntry = { navController.navigate(EntreeDestination.route) },
+                navigateToFoodEntry = { navController.navigate(FoodEntryDestination.route) },
+                // TODO: FIXME -navigateToFoodDetails is simply a placeholder
                 navigateToFoodDetails = { navController.navigate(EntreeDestination.route) }
             )
         }
@@ -37,6 +39,12 @@ fun HomeRestaurantNavHost(
         composable(route = DessertDestination.route) {
             DessertScreen(
 
+            )
+        }
+        composable(route = FoodEntryDestination.route) {
+            FoodEntryScreen(
+                navigateBack = { navController.popBackStack() },
+                onNavigateUp = { navController.navigateUp() }
             )
         }
     }

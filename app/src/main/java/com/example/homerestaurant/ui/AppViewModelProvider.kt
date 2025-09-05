@@ -6,12 +6,19 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.homerestaurant.HomeRestaurantApplication
 import com.example.homerestaurant.ui.entree.EntreeViewModel
+import com.example.homerestaurant.ui.food.FoodEntryViewModel
 
 object AppViewModelProvider {
     val Factory = viewModelFactory {
         // Initializer for EntreeViewModel
         initializer {
             EntreeViewModel(
+                homeRestaurantApplication().container.foodRepository
+            )
+        }
+        // Initializer for FoodEntryViewModel
+        initializer {
+            FoodEntryViewModel(
                 homeRestaurantApplication().container.foodRepository
             )
         }

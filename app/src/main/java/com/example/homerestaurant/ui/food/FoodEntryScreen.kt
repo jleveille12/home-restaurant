@@ -207,24 +207,3 @@ fun FoodEntryScreenPreview() {
         onNavigateUp = {}
     )
 }
-
-// Placeholder to allow for proper compilation
-data class FoodDetails(
-    val name: String = "",
-    val rating: String = "",
-    val prepTime: String = "",
-    val foodCategory: FoodCategory = FoodCategory.ENTREE
-)
-
-// Placeholder
-data class FoodUiState (
-    val foodDetails: FoodDetails,
-    val isEntryValid: Boolean
-)
-
-// Placeholder
-class FoodEntryViewModel {
-    val foodUiState: FoodUiState = FoodUiState(foodDetails = FoodDetails(), isEntryValid = true)
-    fun updateUiState(foodDetails: FoodDetails) {}
-    fun saveFood() {}
-}

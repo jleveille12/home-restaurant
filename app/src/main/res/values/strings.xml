@@ -6,4 +6,8 @@
     <string name="dessert">Dessert</string>
     <string name="side">Side</string>
     <string name="prep_time">%d min</string>
+    <string name="food_entry_title">Add Food</string>
+    <string name="food_name_req">Food Name*</string>
+    <string name="food_rating_req">Food Rating*</string>
+    <string name="prep_time_req">Prep Time*</string>
 </resources>

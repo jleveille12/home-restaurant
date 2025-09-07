@@ -38,15 +38,27 @@ data class FoodUiState(
 )
 
 data class FoodDetails(
+    val id: Int = 0,
     val name: String = "",
     val rating: String = "",
     val prepTime: String = "",
     val foodCategory: FoodCategory = FoodCategory.ENTREE
 )
 
+// Convert FoodDetails to a Food object
 fun FoodDetails.toFood(): Food = Food(
+    id = id,
     name = name,
     rating = rating.toIntOrNull() ?: 0,
     prepTime = prepTime.toIntOrNull() ?: 0,
     category = foodCategory
+)
+
+// Convert Food to a FoodDetails object
+fun Food.toFoodDetails(): FoodDetails = FoodDetails(
+    id = id,
+    name = name,
+    rating = rating.toString(),
+    prepTime = prepTime.toString(),
+    foodCategory = category
 )

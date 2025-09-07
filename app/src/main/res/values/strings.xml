@@ -11,4 +11,5 @@
     <string name="food_rating_req">Food Rating (1-5)*</string>
     <string name="prep_time_req">Prep Time (min)*</string>
     <string name="save_button">Save</string>
+    <string name="food_details">Food Details</string>
 </resources>

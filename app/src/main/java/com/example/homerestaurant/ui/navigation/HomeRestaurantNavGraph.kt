@@ -3,12 +3,16 @@ package com.example.homerestaurant.ui.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.example.homerestaurant.ui.dessert.DessertDestination
 import com.example.homerestaurant.ui.dessert.DessertScreen
 import com.example.homerestaurant.ui.entree.EntreeDestination
 import com.example.homerestaurant.ui.entree.EntreeScreen
+import com.example.homerestaurant.ui.food.FoodDetailsDestination
+import com.example.homerestaurant.ui.food.FoodDetailsScreen
 import com.example.homerestaurant.ui.food.FoodEntryDestination
 import com.example.homerestaurant.ui.food.FoodEntryScreen
 import com.example.homerestaurant.ui.side.SideDestination
@@ -27,8 +31,7 @@ fun HomeRestaurantNavHost(
         composable(route = EntreeDestination.route) {
             EntreeScreen(
                 navigateToFoodEntry = { navController.navigate(FoodEntryDestination.route) },
-                // TODO: FIXME -navigateToFoodDetails is simply a placeholder
-                navigateToFoodDetails = { navController.navigate(EntreeDestination.route) }
+                navigateToFoodDetails = { navController.navigate("${FoodDetailsDestination.route}/${it}") }
             )
         }
         composable(route = SideDestination.route) {
@@ -45,6 +48,17 @@ fun HomeRestaurantNavHost(
             FoodEntryScreen(
                 navigateBack = { navController.popBackStack() },
                 onNavigateUp = { navController.navigateUp() }
+            )
+        }
+        composable(
+            route = FoodDetailsDestination.routeWithArgs,
+            arguments = listOf(navArgument(FoodDetailsDestination.foodIdArg) {
+                type = NavType.IntType
+            })
+        ) {
+            FoodDetailsScreen(
+                navigateToEditFood = { /*FIXME*/ },
+                navigateBack = { navController.navigateUp() }
             )
         }
     }

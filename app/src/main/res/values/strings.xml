@@ -12,4 +12,6 @@
     <string name="prep_time_req">Prep Time (min)*</string>
     <string name="save_button">Save</string>
     <string name="food_details">Food Details</string>
+    <string name="edit_food">Edit Food</string>
+    <string name="delete">Delete</string>
 </resources>

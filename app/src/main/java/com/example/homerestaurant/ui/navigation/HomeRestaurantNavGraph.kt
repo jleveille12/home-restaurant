@@ -13,6 +13,8 @@ import com.example.homerestaurant.ui.entree.EntreeDestination
 import com.example.homerestaurant.ui.entree.EntreeScreen
 import com.example.homerestaurant.ui.food.FoodDetailsDestination
 import com.example.homerestaurant.ui.food.FoodDetailsScreen
+import com.example.homerestaurant.ui.food.FoodEditDestination
+import com.example.homerestaurant.ui.food.FoodEditScreen
 import com.example.homerestaurant.ui.food.FoodEntryDestination
 import com.example.homerestaurant.ui.food.FoodEntryScreen
 import com.example.homerestaurant.ui.side.SideDestination
@@ -57,8 +59,19 @@ fun HomeRestaurantNavHost(
             })
         ) {
             FoodDetailsScreen(
-                navigateToEditFood = { /*FIXME*/ },
+                navigateToEditFood = { navController.navigate("${FoodEditDestination.route}/$it") },
                 navigateBack = { navController.navigateUp() }
+            )
+        }
+        composable(
+            route = FoodEditDestination.routeWithArgs,
+            arguments = listOf(navArgument(FoodEditDestination.foodIdArg) {
+                type = NavType.IntType
+            })
+        ) {
+            FoodEditScreen(
+                navigateBack = { navController.navigateUp() },
+                onNavigateUp = { navController.navigateUp() }
             )
         }
     }

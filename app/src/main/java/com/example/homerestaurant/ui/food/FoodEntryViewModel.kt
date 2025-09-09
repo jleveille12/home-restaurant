@@ -62,3 +62,9 @@ fun Food.toFoodDetails(): FoodDetails = FoodDetails(
     prepTime = prepTime.toString(),
     foodCategory = category
 )
+
+// Convert Food to a FoodUiState object
+fun Food.toFoodUiState(isEntryValid: Boolean = false): FoodUiState = FoodUiState(
+    foodDetails = this.toFoodDetails(),
+    isEntryValid = isEntryValid
+)

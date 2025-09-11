@@ -14,4 +14,9 @@
     <string name="food_details">Food Details</string>
     <string name="edit_food">Edit Food</string>
     <string name="delete">Delete</string>
+    <string name="delete_alert_title">Caution</string>
+    <string name="delete_confirmation_title">Attention</string>
+    <string name="delete_confirmation_text">Are you sure you want to delete? This cannot be undone.</string>
+    <string name="delete_confirmation_cancel">No</string>
+    <string name="delete_confirmation_confirm">Yes</string>
 </resources>

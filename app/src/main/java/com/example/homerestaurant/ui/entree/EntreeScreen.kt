@@ -35,11 +35,13 @@ import com.example.homerestaurant.ui.AppViewModelProvider
 import com.example.homerestaurant.ui.MenuList
 import com.example.homerestaurant.ui.navigation.NavigationDestination
 
+// nav destination object
 object EntreeDestination : NavigationDestination {
     override val route = "entree"
     override val titleRes = R.string.entree
 }
 
+// main entree screen composable with top app bar, FAB, and entree body
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EntreeScreen(
@@ -86,6 +88,7 @@ fun EntreeScreen(
     }
 }
 
+// composable containing menu list of entrees
 @Composable
 private fun EntreeBody(
     entreeList: List<Food>,

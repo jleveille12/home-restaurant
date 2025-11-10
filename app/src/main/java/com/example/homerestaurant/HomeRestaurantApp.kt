@@ -15,12 +15,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.homerestaurant.ui.navigation.HomeRestaurantNavHost
 
-
+// create nav controller and call navHost
 @Composable
 fun HomeRestaurantApp(navController: NavHostController = rememberNavController()) {
     HomeRestaurantNavHost(navController = navController)
 }
 
+// top app bar with title and back arrow
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeRestaurantTopAppBar(

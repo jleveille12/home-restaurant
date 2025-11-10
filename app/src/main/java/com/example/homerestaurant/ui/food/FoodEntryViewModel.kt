@@ -1,5 +1,6 @@
 package com.example.homerestaurant.ui.food
 
+import android.net.Uri
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -42,7 +43,8 @@ data class FoodDetails(
     val name: String = "",
     val rating: String = "",
     val prepTime: String = "",
-    val foodCategory: FoodCategory = FoodCategory.ENTREE
+    val foodCategory: FoodCategory = FoodCategory.ENTREE,
+    val imageUri: String? = null
 )
 
 // Convert FoodDetails to a Food object

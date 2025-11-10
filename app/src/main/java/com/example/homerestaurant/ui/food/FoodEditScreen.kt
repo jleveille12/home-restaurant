@@ -19,6 +19,7 @@ import com.example.homerestaurant.ui.AppViewModelProvider
 import com.example.homerestaurant.ui.navigation.NavigationDestination
 import kotlinx.coroutines.launch
 
+// nav destination object
 object FoodEditDestination : NavigationDestination {
     override val route = "food_edit"
     override val titleRes = R.string.edit_food
@@ -26,6 +27,7 @@ object FoodEditDestination : NavigationDestination {
     val routeWithArgs = "$route/{$foodIdArg}"
 }
 
+// main food edit screen composable with top app bar utilizes the same food entry body
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FoodEditScreen(
@@ -36,6 +38,7 @@ fun FoodEditScreen(
 ) {
 
     val coroutineScope = rememberCoroutineScope()
+
     Scaffold(
         topBar = {
             HomeRestaurantTopAppBar(

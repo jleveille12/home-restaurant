@@ -20,6 +20,7 @@ import com.example.homerestaurant.ui.food.FoodEntryScreen
 import com.example.homerestaurant.ui.side.SideDestination
 import com.example.homerestaurant.ui.side.SideScreen
 
+// navHost starts at Entree screen
 @Composable
 fun HomeRestaurantNavHost(
     navController: NavHostController,
@@ -30,28 +31,33 @@ fun HomeRestaurantNavHost(
         startDestination = EntreeDestination.route,
         modifier = modifier
     ) {
+        // Entree screen
         composable(route = EntreeDestination.route) {
             EntreeScreen(
                 navigateToFoodEntry = { navController.navigate(FoodEntryDestination.route) },
                 navigateToFoodDetails = { navController.navigate("${FoodDetailsDestination.route}/${it}") }
             )
         }
+        // Side screen
         composable(route = SideDestination.route) {
             SideScreen(
 
             )
         }
+        // Dessert screen
         composable(route = DessertDestination.route) {
             DessertScreen(
 
             )
         }
+        // Food Entry screen
         composable(route = FoodEntryDestination.route) {
             FoodEntryScreen(
                 navigateBack = { navController.popBackStack() },
                 onNavigateUp = { navController.navigateUp() }
             )
         }
+        // Food Details screen
         composable(
             route = FoodDetailsDestination.routeWithArgs,
             arguments = listOf(navArgument(FoodDetailsDestination.foodIdArg) {
@@ -63,6 +69,7 @@ fun HomeRestaurantNavHost(
                 navigateBack = { navController.navigateUp() }
             )
         }
+        // Food Edit screen
         composable(
             route = FoodEditDestination.routeWithArgs,
             arguments = listOf(navArgument(FoodEditDestination.foodIdArg) {

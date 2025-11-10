@@ -1,6 +1,5 @@
 package com.example.homerestaurant.ui.food
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -43,6 +42,7 @@ import com.example.homerestaurant.ui.AppViewModelProvider
 import com.example.homerestaurant.ui.navigation.NavigationDestination
 import kotlinx.coroutines.launch
 
+// nav destination object
 object FoodDetailsDestination : NavigationDestination {
     override val route = "food_details"
     override val titleRes = R.string.food_details
@@ -50,6 +50,7 @@ object FoodDetailsDestination : NavigationDestination {
     val routeWithArgs = "$route/{$foodIdArg}"
 }
 
+// main food details screen composable with top app bar, FAB, and food details body
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FoodDetailsScreen(
@@ -58,8 +59,10 @@ fun FoodDetailsScreen(
     modifier: Modifier = Modifier,
     viewModel: FoodDetailsViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
+
     val uiState = viewModel.uiState.collectAsState()
     val coroutineScope = rememberCoroutineScope()
+
     Scaffold(
         topBar = {
             HomeRestaurantTopAppBar(
@@ -106,13 +109,16 @@ fun FoodDetailsScreen(
     }
 }
 
+// ui elements for food details
 @Composable
 private fun FoodDetailsBody(
     foodDetailsUiState: FoodDetailsUiState,
     onDelete: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    // observable variable to trigger delete confirmation dialog
     var deleteConfirmationRequired by rememberSaveable { mutableStateOf(false) }
+
     Column(
         modifier = modifier
     ) {
@@ -144,6 +150,7 @@ private fun FoodDetailsBody(
     }
 }
 
+// alert dialog to pop up when delete button is clicked
 @Composable
 private fun DeleteConfirmationDialog(
     onDeleteConfirm: () -> Unit,

@@ -33,6 +33,7 @@ import com.example.homerestaurant.R
 import com.example.homerestaurant.data.Food
 import com.example.homerestaurant.data.FoodCategory
 
+// lazy column showing list of menu items
 @Composable
 fun MenuList(
     foodList: List<Food>,
@@ -55,6 +56,7 @@ fun MenuList(
     }
 }
 
+// ui card to represent a single food recipe entry
 @Composable
 private fun MenuItem(
     food: Food, modifier: Modifier = Modifier
@@ -100,6 +102,7 @@ private fun MenuItem(
     }
 }
 
+// composable to show food rating represented by filled in star icons
 @Composable
 private fun StarRating(
     rating: Int,
@@ -120,6 +123,8 @@ private fun StarRating(
         }
     }
 }
+
+// Previews
 
 @Preview(showBackground = true)
 @Composable
